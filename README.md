@@ -1,7 +1,6 @@
 # sneak-file
 
 ![npm (scoped)](https://img.shields.io/npm/v/sneak-file.svg)
- [![CircleCI](https://circleci.com/gh/sneak-file.svg?style=svg)](https://circleci.com/gh/sneak-file)
 
 Utility to create previews for multiple type of files
 
