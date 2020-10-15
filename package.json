@@ -1,0 +1,69 @@
+{
+  "name": "sneak-file",
+  "version": "1.0.0",
+  "description": "Utility to create previews for multiple type of files",
+  "main": "./src/main.js",
+  "files": [
+    "src",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "lint": "eslint src",
+    "test": "jest src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vercryger/sneak-file.git"
+  },
+  "author": "Vercryger",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Vercryger/sneak-file/issues"
+  },
+  "homepage": "https://github.com/Vercryger/sneak-file#readme",
+  "bin": {
+    "migrator": "./src/cli.js"
+  },
+  "dependencies": {
+    "@reactioncommerce/eslint-config": "^2.2.0",
+    "cheerio": "^1.0.0-rc.3",
+    "cli-progress": "^3.6.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "node-fetch": "^2.6.1",
+    "semantic-release": "^17.2.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "husky": "^3.0.0",
+    "jest": "^25.1.0"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "release": {
+    "branches": [
+      "master"
+    ]
+  }
+}
