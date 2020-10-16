@@ -1,6 +1,6 @@
 {
   "name": "sneak-file",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utility to create previews for multiple type of files",
   "main": "./src/main.js",
   "files": [
@@ -62,7 +62,6 @@
     }
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@vercryger",
     "access": "public"
   },
   "release": {
