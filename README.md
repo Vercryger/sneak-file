@@ -23,7 +23,7 @@ Examples of commit messages: https://github.com/semantic-release/semantic-releas
 The `@sneak-file` package is automatically published by CI when commits are merged or pushed to the `master` branch. This is done using [semantic-release](https://www.npmjs.com/package/semantic-release), which also determines version bumps based on conventional Git commit messages.
 
 ## Developer Certificate of Origin
-We use the [Developer Certificate of Origin (DCO)](https://developercertificate.org/) in lieu of a Contributor License Agreement for all contributions to Reaction Commerce open source projects. We request that contributors agree to the terms of the DCO and indicate that agreement by signing-off all commits made to Reaction Commerce projects by adding a line with your name and email address to every Git commit message contributed:
+We use the [Developer Certificate of Origin (DCO)](https://developercertificate.org/) in lieu of a Contributor License Agreement for all contributions to this project. We request that contributors agree to the terms of the DCO and indicate that agreement by signing-off all commits made by adding a line with your name and email address to every Git commit message contributed:
 ```
 Signed-off-by: Jane Doe <jane.doe@example.com>
 ```

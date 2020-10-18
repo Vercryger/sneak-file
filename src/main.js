@@ -2,12 +2,11 @@ const querystring = require('querystring');
 const cheerio = require('cheerio');
 const sharp = require('sharp');
 const fetch = require('node-fetch');
+const userAgent = require('random-useragent');
 
 const baseURL = 'https://docs.google.com';
 const defaultOptions = {
-  format: 'png',
-  scale: 1,
-  filePath: `output-${Date.now()}`,
+  width: 300,
 };
 
 async function main(fileUrl, opts = {}) {
@@ -25,7 +24,12 @@ async function main(fileUrl, opts = {}) {
   let html = null;
 
   try {
-    html = await fetch(`${baseURL}/viewer?${querystring.stringify(params)}`).then((res) => res.text());
+    html = await fetch(`${baseURL}/viewer?${querystring.stringify(params)}`,{
+      method: 'GET',
+      headers: {
+        'User-Agent': userAgent.getRandom()
+      }
+    }).then((res) => res.text());
   } catch (e) {
     throw new Error('Network error');
   }
@@ -35,19 +39,15 @@ async function main(fileUrl, opts = {}) {
 
   if (!imgPath) throw new Error('Cannot preview file');
 
-  const res = await fetch(`https://docs.google.com${imgPath}`);
+  const res = await fetch(`${baseURL}${imgPath}`);
   const buffer = await res.buffer();
-
   const meta = await sharp(buffer).metadata();
-  const sharpFile = sharp(buffer)
-    .resize(Math.round(meta.width * options.scale))
-    .toFormat(options.format);
 
-  if (options.filePath) {
-    return sharpFile.toFile(`${options.filePath}.${options.format}`);
-  }
+  const sharpObject = sharp(buffer)
+    .resize({ width: options.width })
+    .toFormat(meta.format);
 
-  return sharpFile;
+  return sharpObject.toBuffer();;
 }
 
 module.exports = main;
