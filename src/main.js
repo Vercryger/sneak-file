@@ -24,11 +24,11 @@ async function main(fileUrl, opts = {}) {
   let html = null;
 
   try {
-    html = await fetch(`${baseURL}/viewer?${querystring.stringify(params)}`,{
+    html = await fetch(`${baseURL}/viewer?${querystring.stringify(params)}`, {
       method: 'GET',
       headers: {
-        'User-Agent': userAgent.getRandom()
-      }
+        'User-Agent': userAgent.getRandom(),
+      },
     }).then((res) => res.text());
   } catch (e) {
     throw new Error('Network error');
@@ -47,7 +47,7 @@ async function main(fileUrl, opts = {}) {
     .resize({ width: options.width })
     .toFormat(meta.format);
 
-  return sharpObject.toBuffer();;
+  return sharpObject.toBuffer();
 }
 
 module.exports = main;
