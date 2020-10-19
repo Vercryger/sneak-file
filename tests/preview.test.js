@@ -20,8 +20,19 @@ test('it should preview pptx file', async () => {
   expect(res).toBeInstanceOf(Buffer);
 });
 
-test('it should throw error for unsuported file', async () => {
+test('it should preview xlsx file', async () => {
+  const res = await previewer('https://github.com/Vercryger/sneak-file/raw/master/tests/files/sample-sheet.xlsx');
+  expect(res).toBeInstanceOf(Buffer);
+});
+
+test('it should throw error for odp file', async () => {
   const call = previewer('https://github.com/Vercryger/sneak-file/raw/master/tests/files/sample-pp.odp');
+
+  await expect(call).rejects.toThrow('Cannot preview file');
+});
+
+test('it should throw error for ods file', async () => {
+  const call = previewer('https://github.com/Vercryger/sneak-file/raw/master/tests/files/sample-sheet.ods');
 
   await expect(call).rejects.toThrow('Cannot preview file');
 });
