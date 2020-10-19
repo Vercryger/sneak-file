@@ -10,7 +10,16 @@ Coming soon
 
 ## Usage
 
-Coming soon
+```
+const sneakFile = require('sneak-file')
+const buffer = sneakFile('https://fakedoamin.com/myfile.docx');
+
+await uploadToS3OrWriteToFileOrWhatever(buffer);
+```
+
+## Considerations
+
+As the strategy to preview any file is by crawling the Google Viewer, the process of getting the actual image(s) is slow, and like any other crawling algorithm, should be slow down when processing multiple files at once.
 
 ## Commit Messages
 
