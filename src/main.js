@@ -9,6 +9,14 @@ const defaultOptions = {
   width: 300,
 };
 
+/**
+ * Creates an image preview for a given remove file URL
+ *
+ * @param  {String} fileUrl         is the remove file URL
+ * @param  {Object} opts            optional arguments
+ * @param  {Object} opts.width      is the output image width
+ * @return {Object} Promise<Buffer> is the resulting Buffer object
+ */
 async function main(fileUrl, opts = {}) {
   if (!fileUrl.match(/\.[^.\\/:*?"<>|\r\n]+$/)) throw new Error('Unrecognized file');
 
