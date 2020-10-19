@@ -1,28 +1,33 @@
 const previewer = require('../src/main.js');
 
 test('it should preview docx file', async () => {
-  const res = await previewer('https://eks-revolution-global.s3.amazonaws.com/PigBvvoFn5rJpRRgM-365%20Cannabis%20-%20Inventory%20API%20-%20Preview%20-%20Revolution%20eComm.docx');
+  const res = await previewer('https://github.com/Vercryger/sneak-file/raw/master/tests/files/sample-doc.docx');
   expect(res).toBeInstanceOf(Buffer);
 });
 
 test('it should preview pdf file', async () => {
-  const res = await previewer('https://eks-revolution-global.s3.amazonaws.com/KxWXEpKsiHXKeA7Wh-Sent%20to%20Andy%20Mack%203-30-20.pdf');
+  const res = await previewer('https://github.com/Vercryger/sneak-file/raw/master/tests/files/sample-doc.pdf');
+  expect(res).toBeInstanceOf(Buffer);
+});
+
+test('it should preview rtf file', async () => {
+  const res = await previewer('https://github.com/Vercryger/sneak-file/raw/master/tests/files/sample-doc.rtf');
   expect(res).toBeInstanceOf(Buffer);
 });
 
 test('it should preview pptx file', async () => {
-  const res = await previewer('https://eks-revolution-global.s3.us-east-2.amazonaws.com/test/Untitled+presentation.pptx');
+  const res = await previewer('https://github.com/Vercryger/sneak-file/raw/master/tests/files/sample-pp.pptx');
   expect(res).toBeInstanceOf(Buffer);
 });
 
 test('it should throw error for unsuported file', async () => {
-  const call = previewer('https://eks-revolution-global.s3.us-east-2.amazonaws.com/test/ohm2013.odp');
+  const call = previewer('https://github.com/Vercryger/sneak-file/raw/master/tests/files/sample-pp.odp');
 
   await expect(call).rejects.toThrow('Cannot preview file');
 });
 
 test('it should throw error for URLs with no extension', async () => {
-  const call = previewer('https://samples3bucket.com/filewithnoextension');
+  const call = previewer('https://sampledomain.com/filewithnoextension');
 
   await expect(call).rejects.toThrow('Unrecognized file');
 });
