@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/Vercryger/sneak-file#readme",
   "dependencies": {
-    "@reactioncommerce/eslint-config": "^2.2.0",
     "cheerio": "^1.0.0-rc.3",
     "eslint-plugin-standard": "^4.0.1",
     "node-fetch": "^2.6.1",
